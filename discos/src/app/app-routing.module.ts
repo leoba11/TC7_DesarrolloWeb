@@ -6,7 +6,6 @@ const routes: Routes = [
   { path: 'create', loadChildren: () => import('./discos-create/discos-create.module').then(m => m.DiscosCreatePageModule) },
   { path: 'edit/:id', loadChildren: () => import('./discos-edit/discos-edit.module').then(m => m.DiscosEditPageModule) },
   { path: 'list', loadChildren: () => import('./discos-list/discos-list.module').then(m => m.DiscosListPageModule) },
-  { path: 'detail', loadChildren: () => import('./discos-detail/discos-detail.module').then(m => m.DiscosDetailPageModule) },
 ];
 
 @NgModule({

@@ -1,9 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>discos-list</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>Lista de Discos</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-
+ 
+<ion-content class="ion-padding">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>&nbsp;
+        <th scope="col">Artista</th>&nbsp;
+        <th scope="col">Titulo</th>&nbsp;
+        <th scope="col">Fecha</th>&nbsp;
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of discosData">
+        <td>{{ item.id }}</td>&nbsp;
+        <td>{{ item.artista }}</td>&nbsp;
+        <td>{{ item.titulo }}</td>&nbsp;
+        <td>{{ item.fecha | date }}</td>&nbsp;
+        <td style="display: flex">
+    
+          <ion-button color="primary" size="small" routerLink='/edit/{{item.id}}'>
+            <ion-icon name="create"></ion-icon>
+          </ion-button>&nbsp;
+          <ion-button color="danger" size="small" (click)="delete(item)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ion-button [routerLink]="['/create']">
+    Agregar Disco
+  </ion-button>
 </ion-content>

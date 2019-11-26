@@ -9,7 +9,7 @@ import { Disco } from '../models/disco';
 })
 export class ApiService {
 
-  base_path = 'http://localhost:8100/discos';
+  base_path = 'https://localhost:44327/api/albums';
 
   constructor(private http: HttpClient ) { }
 
@@ -37,6 +37,7 @@ export class ApiService {
 
   // Crear un nuevo item
   createItem(item): Observable<Disco> {
+    //item.id = 10;
     return this.http
       .post<Disco>(this.base_path, JSON.stringify(item), this.httpOptions)
       .pipe(
